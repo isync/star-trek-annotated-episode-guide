@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Star Trek: Voyager - Star Trek Annotated Episodes Guide</title>
+
+	<style type="text/css">
+		body { margin: 10px 50px; font-family: Arial; }
+
+		h1 a { text-decoration: none; color: #069; }
+		h2 { margin-top: 50px; }
+		h3 { margin-bottom: 5px; }
+
+		p { margin-top: 50px; line-height: 3em; }
+
+		p a { display: block; border: 1px solid #fff;  border-radius: 5px; padding: 10px 25px; }
+
+		p a:hover { border: 1px solid #eee; }
+
+		table { border-collapse: collapse; }
+
+		td,th { text-align: left; border: 1px solid #ccc; padding: 5px 8px; }
+		td:first-child { text-align: center; width: 100px; }
+		td:first-child + td { text-align: center;  width: 100px; }
+
+		#tags { line-height: 2.2em; }
+		a.tag {  border: none; border-radius: 5px; background-color: #bbb; padding: 3px 8px; margin: 3px; margin-bottom: 10px; text-decoration: none; color: #fff; white-space: nowrap; }
+		
+		.green { background-color: #38be67 !important; }
+		.mint { background-color: #44af8e !important; }
+		.darkred { background-color: #d9534f !important; }
+		.grey { background-color: #5e5e5e !important; }
+		.yellow { background-color: #d1d100 !important; }
+		.olive { background-color: olive !important; }
+		.purple { background-color: #8e44ad !important; }
+		.pink { background-color: #ff6de4 !important; }
+		.red { background-color: #ff0000 !important; }
+		.blue { background-color: #5e90ff !important; }
+
+		#filters { margin-left: 25px; display: none; }
+		#filters a { margin-left: 15px; width: 18px; height: 18px; }
+	</style>
+
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+	var is_filtered = 0;
+
+	function clear_filters() {
+		$("table tr").show();
+
+		is_filtered = 0;
+		$("#filters > span").empty();
+		$("#filters").hide();
+	}
+
+	$(document).ready(function() {
+		$(".tag").click(function() {
+			event.preventDefault();
+
+			if(is_filtered > 1){
+				clear_filters();
+			}else{
+				var query = $(this).attr('href');
+				console.log(is_filtered, query);
+
+				var $tag_a = $(this).clone();
+
+				var re = new RegExp(query.toLowerCase(), 'g');
+
+				$("table tr").not(':first').each(function() {
+					$this = $(this);
+					var text = $this.find("td:eq(3)").text();
+					if( text.match(re) ){
+					//	console.log( text );
+					}else{
+						$this.fadeOut(1000);
+					}
+				});
+
+				$("#filters > span").prepend($tag_a);
+
+				is_filtered++;
+				$("#filters").show();
+			}
+		});
+	});
+	</script>
+</head>
+<body>
+
+	<h1><a href="index.html">Star Trek Annotated Episodes Guide</a></h1>
+
+	<hr>
+
+	<div id="tags">
+		<h3>Tags:</h3>
+		<a href="Powerful being"	class="tag blue" title="indicates episode where the Voyager faces an enemy with superior powers (e.g., Q, the caretaker)">Powerful being</a>
+		<a href="Action"		class="tag red" title="indicates episode focused more on a conflict or spaceship fight.">Action</a>
+		<a href="Relationships"	class="tag grey" title="indicates episode where the central plot is focused on romantic, family, friendship, or crew relationships.">Relationships</a>
+		<a href="Time travel"	class="tag yellow" title="indicates episode that features time travel or time anomalies as a central element of the plot.">Time travel</a>
+		<a href="Culture-clash"	class="tag olive" title="indicates episode centered around a cultural conflict between the Voyager and another planet, group of aliens, or between members of the crew.">Culture-clash</a>
+		<a href="Philosophical"	class="tag mint" title="indicates episode centered around an ethical or philosophical dilemma that is explored through the plot.">Philosophical</a>
+		<a href="Mystery"		class="tag darkred" title="indicates episode centered around a mysterious event that is figured out throughout the plot.">Mystery</a>
+		<a href="Intrigue"		class="tag purple" title="indicates episode centered around betrayal, deception, or other interpersonal conflicts that involve these elements.">Intrigue</a>
+		<a href="Space anomaly"	class="tag green" title="indicates episode centered around a strange phenomena that complicates the situation for the Voyager (e.g., a space distortion, a wormhole, etc.)">Space anomaly</a>
+		<a href="Psychological"	class="tag darkred" title="indicates episode focused on a crew member's psychological state or alterations of this state (e.g., hallucinations, PTSD, illusions, subconscious projections, etc.)">Psychological</a>
+		<a href="Emotional"		class="tag pink" title="indicates episode focused on the emotional experience of a character that is centered on this emotional experience (e.g., abnormal anger, loss, etc.)">Emotional</a>
+		<a href="Historical figures" class="tag yellow" title="indicates episode that features real or in-universe historical figures">Historical figures</a>
+		<a href="Virtual reality"	class="tag mint" title="indicates an episode centered around the holodeck or another experience that occurs within a virtual simulation or features this element at the center of the plot">Virtual reality</a>
+		<a href="Powers"		class="tag olive" title="indicates an episode centered around the special powers of an character (e.g., psychic abilities)">Powers</a>
+		<a href="Mutation"		class="tag purple" title="indicates an episode centered around an individual being altered or changed (e.g., mutated into another being, cloned, etc.)">Mutation</a>
+		<a href="Horror"		class="tag darkred" title="indicates an episode featuring scary elements ">Horror</a>
+		<a href="Survival"		class="tag blue" title="indicates an episode where characters must survive in a hostile environment (e.g., an alien planet, a prison, etc.)">Survival</a>
+		<a href="Spiritual"		class="tag darkred" title="indicates an episode focused on a character's spiritual journey or faith">Spiritual</a>
+		<a href="Crossover"		class="tag purple" title="indicates an episode that prominently features characters from other Star Trek shows">Crossover</a>
+		<a href="Comedy"		class="tag yellow" title="indicates an episode that features foremost humorous or playful amusing elements">Comedy</a>
+	</div>
+
+	<h2>Star Trek: Voyager <span id="filters"><span></span><a href="#" onclick="clear_filters();" title="clear"><img alt="clear" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4wcRDQ0TP0mDpgAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAclBMVEW3t7fExMTFxcXGxsbHx8fJycnKysrMzMzQ0NDR0dHT09PU1NTY2NjZ2dna2trd3d3e3t7i4uLj4+Pk5OTm5ubo6Ojp6enr6+vs7Ozt7e3w8PDx8fH09PT19fX29vb39/f5+fn6+vr7+/v9/f3/beT///9XhvbgAAAAAWJLR0QktAb5mQAAAH5JREFUGNN10NkSgjAQRNHQEgEXUFwRAUPq/v8v+qJCYtGPp2apGYOJgjGKYhYo9wyppAscv1U1nKUtPKfGDr9JB3w+UeHpr1DPx58AumDjqgeKgNYOKANqwOPsjEp4HKCZyDrGLGlh/6M7VFI28rIf2kGbSKrgtnx2TP8vfAPXHwvCVBHHRgAAAABJRU5ErkJggg=="></a></span></h2>
+
+	<table id="episodes" cellspacing="0" border="0">
+	<tr>
+		<th>episode no</th>
+		<th>episode</td>
+		<th>title</th>
+		<th>tag(s)</th>
+	</tr>
+	<!-- TABLE_BEGIN -->
+	<tr><td>1</td><td>1.1</td><td>The Caretaker (1)</td><td>powerful being, action</td></tr>
+	<tr><td>2</td><td>1.2</td><td>The Caretaker (2)</td><td>powerful being, action</td></tr>
+	<tr><td>3</td><td>1.3</td><td>Parallax</td><td>relationships, culture-clash</td></tr>
+	<tr><td>4</td><td>1.4</td><td>Time And Again</td><td>time travel</td></tr>
+	<tr><td>5</td><td>1.5</td><td>Phage</td><td>philosophical</td></tr>
+	<tr><td>6</td><td>1.6</td><td>The Cloud</td><td>space anomaly, emotional</td></tr>
+	<tr><td>7</td><td>1.7</td><td>Eye Of The Needle</td><td>time travel</td></tr>
+	<tr><td>8</td><td>1.8</td><td>Ex Post Facto</td><td>mystery</td></tr>
+	<tr><td>9</td><td>1.9</td><td>Emanations</td><td>culture-clash, philosophical</td></tr>
+	<tr><td>10</td><td>1.10</td><td>Prime Factors</td><td>culture-clash, intrigue</td></tr>
+	<tr><td>11</td><td>1.11</td><td>State Of Flux</td><td>intrigue</td></tr>
+	<tr><td>12</td><td>1.12</td><td>Heroes And Demons</td><td>virtual reality, mystery</td></tr>
+	<tr><td>13</td><td>1.13</td><td>Cathexis</td><td>space anomaly</td></tr>
+	<tr><td>14</td><td>1.14</td><td>Faces</td><td>psychological</td></tr>
+	<tr><td>15</td><td>1.15</td><td>Jetrel</td><td>emotional</td></tr>
+	<tr><td>16</td><td>1.16</td><td>Learning Curve</td><td>relationships, culture-clash</td></tr>
+	<tr><td>17</td><td>2.1</td><td>The 37’s</td><td>philosophical, historical figures</td></tr>
+	<tr><td>18</td><td>2.2</td><td>Initiations</td><td>culture-clash</td></tr>
+	<tr><td>19</td><td>2.3</td><td>Projections</td><td>philosophical, virtual reality</td></tr>
+	<tr><td>20</td><td>2.4</td><td>Elogium</td><td>space anomaly, relationships</td></tr>
+	<tr><td>21</td><td>2.5</td><td>Non Sequitur</td><td>time travel</td></tr>
+	<tr><td>22</td><td>2.6</td><td>Twisted</td><td>mystery, space anomaly</td></tr>
+	<tr><td>23</td><td>2.7</td><td>Parturition</td><td>relationships</td></tr>
+	<tr><td>24</td><td>2.8</td><td>Persistence Of Vision</td><td>virtual reality, psychological</td></tr>
+	<tr><td>25</td><td>2.9</td><td>Tattoo</td><td>mystery, culture-clash</td></tr>
+	<tr><td>26</td><td>2.10</td><td>Cold Fire</td><td>powers</td></tr>
+	<tr><td>27</td><td>2.11</td><td>Maneuvers</td><td>relationships, intrigue</td></tr>
+	<tr><td>28</td><td>2.12</td><td>Resistance</td><td>psychological</td></tr>
+	<tr><td>29</td><td>2.13</td><td>Prototype</td><td>philosophical, culture-clash</td></tr>
+	<tr><td>30</td><td>2.14</td><td>Alliances</td><td>culture-clash, intrigue</td></tr>
+	<tr><td>31</td><td>2.15</td><td>Threshold</td><td>mutation, space anomaly</td></tr>
+	<tr><td>32</td><td>2.16</td><td>Meld</td><td>emotional, powers</td></tr>
+	<tr><td>33</td><td>2.17</td><td>Dreadnought</td><td>philosophical, intrigue</td></tr>
+	<tr><td>34</td><td>2.18</td><td>Deathwish</td><td>powerful being, philosophical</td></tr>
+	<tr><td>35</td><td>2.19</td><td>Lifesigns</td><td>virtual reality, philosophical</td></tr>
+	<tr><td>36</td><td>2.20</td><td>Investigations</td><td>mystery, intrigue</td></tr>
+	<tr><td>37</td><td>2.21</td><td>Deadlock</td><td>space anomaly, action</td></tr>
+	<tr><td>38</td><td>2.22</td><td>Innocence</td><td>culture-clash</td></tr>
+	<tr><td>39</td><td>2.23</td><td>The Thaw</td><td>virtual reality, horror</td></tr>
+	<tr><td>40</td><td>2.24</td><td>Tuvix (a.k.a. Symbiogenesis)</td><td>mutation, philosophical</td></tr>
+	<tr><td>41</td><td>2.25</td><td>Resolutions</td><td>relationships, intrigue</td></tr>
+	<tr><td>42</td><td>2.26</td><td>Basics (1)</td><td>intrigue, action</td></tr>
+	<tr><td>43</td><td>3.1</td><td>Basics (2)</td><td>action, culture-clash, survival</td></tr>
+	<tr><td>44</td><td>3.2</td><td>Flashback</td><td>emotional, mystery, crossover</td></tr>
+	<tr><td>45</td><td>3.3</td><td>The Chute</td><td>action, survival</td></tr>
+	<tr><td>46</td><td>3.4</td><td>The Swarm</td><td>philosophical, virtual reality</td></tr>
+	<tr><td>47</td><td>3.5</td><td>False Profits</td><td>crossover, culture-clash</td></tr>
+	<tr><td>48</td><td>3.6</td><td>Remember</td><td>philosophical, relationships</td></tr>
+	<tr><td>49</td><td>3.7</td><td>Sacred Ground</td><td>spiritual</td></tr>
+	<tr><td>50</td><td>3.8</td><td>Future’s End (1)</td><td>time travel</td></tr>
+	<tr><td>51</td><td>3.9</td><td>Future’s End (2)</td><td>time travel</td></tr>
+	<tr><td>52</td><td>3.10</td><td>Warlord</td><td>action, relationships</td></tr>
+	<tr><td>53</td><td>3.11</td><td>The Q And The Grey</td><td>powerful being, crossover, relationships</td></tr>
+	<tr><td>54</td><td>3.12</td><td>Macrocosm</td><td>mutation</td></tr>
+	<tr><td>55</td><td>3.13</td><td>Fair Trade</td><td>intrigue, relationships</td></tr>
+	<tr><td>56</td><td>3.14</td><td>Alter Ego</td><td>relationships</td></tr>
+	<tr><td>57</td><td>3.15</td><td>Coda</td><td>spiritual, mystery</td></tr>
+	<tr><td>58</td><td>3.16</td><td>Blood Fever</td><td>relationships, emotional</td></tr>
+	<tr><td>59</td><td>3.17</td><td>Unity</td><td>intrigue, philosophical</td></tr>
+	<tr><td>60</td><td>3.18</td><td>The Darkling</td><td>virtual reality, horror, historical figures</td></tr>
+	<tr><td>61</td><td>3.19</td><td>Rise</td><td>survival</td></tr>
+	<tr><td>62</td><td>3.20</td><td>Favorite Son</td><td>mutation, culture clash</td></tr>
+	<tr><td>63</td><td>3.21</td><td>Before And After</td><td>time travel</td></tr>
+	<tr><td>64</td><td>3.22</td><td>Real Life</td><td>space anomaly, virtual reality</td></tr>
+	<tr><td>65</td><td>3.23</td><td>Distant Origin</td><td>philosophical, culture-clash</td></tr>
+	<tr><td>66</td><td>3.24</td><td>Worst Case Scenario</td><td>virtual reality, intrigue</td></tr>
+	<tr><td>67</td><td>3.25</td><td>Displaced</td><td>virtual reality, action</td></tr>
+	<tr><td>68</td><td>3.26</td><td>Scorpion – Part 1</td><td>action</td></tr>
+	<tr><td>69</td><td>4.1</td><td>Scorpion – Part 2</td><td>action, intrigue</td></tr>
+	<tr><td>70</td><td>4.2</td><td>The Gift</td><td>philosophical, powers</td></tr>
+	<tr><td>71</td><td>4.3</td><td>Day Of Honor</td><td>relationships, survival</td></tr>
+	<tr><td>72</td><td>4.4</td><td>Nemesis</td><td>culture-clash, philosophical</td></tr>
+	<tr><td>73</td><td>4.5</td><td>Revulsion</td><td>relationships, virtual reality</td></tr>
+	<tr><td>74</td><td>4.6</td><td>The Raven</td><td>emotional</td></tr>
+	<tr><td>75</td><td>4.7</td><td>Scientific Method</td><td>mutation</td></tr>
+	<tr><td>76</td><td>4.8</td><td>Year Of Hell (1)</td><td>time travel, action</td></tr>
+	<tr><td>77</td><td>4.9</td><td>Year Of Hell (2)</td><td>time travel</td></tr>
+	<tr><td>78</td><td>4.10</td><td>Random Thoughts</td><td>culture-clash</td></tr>
+	<tr><td>79</td><td>4.11</td><td>Concerning Flight</td><td>virtual reality, historical figures</td></tr>
+	<tr><td>80</td><td>4.12</td><td>Mortal Coil</td><td>spiritual, philosophical</td></tr>
+	<tr><td>81</td><td>4.13</td><td>Waking Moments</td><td>culture-clash, psychological</td></tr>
+	<tr><td>82</td><td>4.14</td><td>Message In A Bottle</td><td>action</td></tr>
+	<tr><td>83</td><td>4.15</td><td>Hunters</td><td>emotional, relationships</td></tr>
+	<tr><td>84</td><td>4.16</td><td>Prey</td><td>philosophical</td></tr>
+	<tr><td>85</td><td>4.17</td><td>Retrospect</td><td>psychological, emotional</td></tr>
+	<tr><td>86</td><td>4.18</td><td>The Killing Game (1)</td><td>virtual reality, historical figures</td></tr>
+	<tr><td>87</td><td>4.19</td><td>The Killing Game (2)</td><td>virtual reality, historical figures</td></tr>
+	<tr><td>88</td><td>4.20</td><td>Vis A Vis</td><td>body swap</td></tr>
+	<tr><td>89</td><td>4.21</td><td>The Omega Directive</td><td>space anomaly</td></tr>
+	<tr><td>90</td><td>4.22</td><td>Unforgettable</td><td>relationships</td></tr>
+	<tr><td>91</td><td>4.23</td><td>Living Witness</td><td>culture-clash, philosophical</td></tr>
+	<tr><td>92</td><td>4.24</td><td>Demon</td><td>survival, mutation</td></tr>
+	<tr><td>93</td><td>4.25</td><td>One</td><td>space anomaly, psychological</td></tr>
+	<tr><td>94</td><td>4.26</td><td>Hope And Fear</td><td>intrigue</td></tr>
+	<tr><td>95</td><td>5.1</td><td>Night</td><td>space anomaly</td></tr>
+	<tr><td>96</td><td>5.2</td><td>Drone</td><td>philosophical, relationships</td></tr>
+	<tr><td>97</td><td>5.3</td><td>Extreme Risk</td><td>emotional</td></tr>
+	<tr><td>98</td><td>5.4</td><td>In The Flesh</td><td>mystery, intrigue</td></tr>
+	<tr><td>99</td><td>5.5</td><td>Once Upon A Time</td><td>relationships</td></tr>
+	<tr><td>100</td><td>5.6</td><td>Timeless</td><td>time travel, crossover</td></tr>
+	<tr><td>101</td><td>5.7</td><td>Infinite Regress</td><td>psychological</td></tr>
+	<tr><td>102</td><td>5.8</td><td>Nothing Human</td><td>philosophical, virtual reality</td></tr>
+	<tr><td>103</td><td>5.9</td><td>Thirty Days</td><td>philosophical</td></tr>
+	<tr><td>104</td><td>5.10</td><td>Counterpoint</td><td>culture-clash, intrigue</td></tr>
+	<tr><td>105</td><td>5.11</td><td>Latent Image</td><td>philosophical</td></tr>
+	<tr><td>106</td><td>5.12</td><td>Bride Of Chaotica</td><td>virtual reality</td></tr>
+	<tr><td>107</td><td>5.13</td><td>Gravity</td><td>relationships</td></tr>
+	<tr><td>108</td><td>5.14</td><td>Bliss</td><td>space anomaly, psychological</td></tr>
+	<tr><td>109</td><td>5.15</td><td>Dark Frontier (1)</td><td>crossover, psychological</td></tr>
+	<tr><td>110</td><td>5.16</td><td>Dark Frontier (2)</td><td>psychological, intrigue</td></tr>
+	<tr><td>111</td><td>5.17</td><td>The Disease</td><td>culture-clash, emotional</td></tr>
+	<tr><td>112</td><td>5.18</td><td>Course</td><td>mutation, emotional</td></tr>
+	<tr><td>113</td><td>5.19</td><td>The Fight</td><td>psychological</td></tr>
+	<tr><td>114</td><td>5.20</td><td>Think Tank</td><td>intrigue</td></tr>
+	<tr><td>115</td><td>5.21</td><td>Juggernaut</td><td>emotional, culture-clash</td></tr>
+	<tr><td>116</td><td>5.22</td><td>Someone To Watch Over Me</td><td>relationships</td></tr>
+	<tr><td>117</td><td>5.23</td><td>11</td><td>historical figures, relationship</td></tr>
+	<tr><td>118</td><td>5.24</td><td>Relativity</td><td>time travel</td></tr>
+	<tr><td>119</td><td>5.25</td><td>Warhead</td><td>philosophical, culture-clas</td></tr>
+	<tr><td>120</td><td>5.26</td><td>Equinox (1)</td><td>philosophical, intrigue</td></tr>
+	<tr><td>121</td><td>6.1</td><td>Equinox (2)</td><td>philosophical</td></tr>
+	<tr><td>122</td><td>6.2</td><td>Survival Instinct</td><td>philosophical</td></tr>
+	<tr><td>123</td><td>6.3</td><td>Barge Of The Dead</td><td>spiritual</td></tr>
+	<tr><td>124</td><td>6.4</td><td>Tinker, Tenor, Doctor, Spy</td><td>virtual reality</td></tr>
+	<tr><td>125</td><td>6.5</td><td>Alice</td><td>horror</td></tr>
+	<tr><td>126</td><td>6.6</td><td>Riddles</td><td>psychological</td></tr>
+	<tr><td>127</td><td>6.7</td><td>Dragon’s Teeth</td><td>intrigue, culture-clash</td></tr>
+	<tr><td>128</td><td>6.8</td><td>One Small Step</td><td>emotional</td></tr>
+	<tr><td>129</td><td>6.9</td><td>The Voyager Conspiracy</td><td>psychological</td></tr>
+	<tr><td>130</td><td>6.10</td><td>Pathfinder</td><td>virtual reality, crossover, psychological</td></tr>
+	<tr><td>131</td><td>6.11</td><td>Fair Haven</td><td>virtual reality, philosophical, relationships</td></tr>
+	<tr><td>132</td><td>6.12</td><td>Blink Of An Eye</td><td>time travel</td></tr>
+	<tr><td>133</td><td>6.13</td><td>Virtuoso</td><td>culture-clash, psychological</td></tr>
+	<tr><td>134</td><td>6.14</td><td>Memorial</td><td>psychological, mystery</td></tr>
+	<tr><td>135</td><td>6.15</td><td>Tsunkatse</td><td>survival</td></tr>
+	<tr><td>136</td><td>6.16</td><td>Collective</td><td>philosophical</td></tr>
+	<tr><td>137</td><td>6.17</td><td>Spirit Folk</td><td>virtual reality</td></tr>
+	<tr><td>138</td><td>6.18</td><td>Ashes To Ashes</td><td>relationships, mutation</td></tr>
+	<tr><td>139</td><td>6.19</td><td>Child’s Play</td><td>relationships</td></tr>
+	<tr><td>140</td><td>6.20</td><td>Good Shepherd</td><td>relationships</td></tr>
+	<tr><td>141</td><td>6.21</td><td>Live Fast And Prosper</td><td>intrigue</td></tr>
+	<tr><td>142</td><td>6.22</td><td>Muse</td><td>culture-clash</td></tr>
+	<tr><td>143</td><td>6.23</td><td>Fury</td><td>time travel, powers, emotional</td></tr>
+	<tr><td>144</td><td>6.24</td><td>Life Line</td><td>relationships</td></tr>
+	<tr><td>145</td><td>6.25</td><td>The Haunting Of Deck Twelve</td><td>space anomaly</td></tr>
+	<tr><td>146</td><td>6.26</td><td>Unimatrix Zero (1)</td><td>action, intrigue</td></tr>
+	<tr><td>147</td><td>7.1</td><td>Unimatrix Zero (2)</td><td>philosophical, relationships</td></tr>
+	<tr><td>148</td><td>7.2</td><td>Imperfection</td><td>relationships</td></tr>
+	<tr><td>149</td><td>7.3</td><td>Drive</td><td>relationships, intrigue</td></tr>
+	<tr><td>150</td><td>7.4</td><td>Repression</td><td>psychological</td></tr>
+	<tr><td>151</td><td>7.5</td><td>Critical Care</td><td>philosophical, culture-clash</td></tr>
+	<tr><td>152</td><td>7.6</td><td>Inside Man</td><td>intrigue, crossover</td></tr>
+	<tr><td>153</td><td>7.7</td><td>Body And Soul</td><td>culture-clash</td></tr>
+	<tr><td>154</td><td>7.8</td><td>Nightingale</td><td>intrigue</td></tr>
+	<tr><td>155</td><td>7.9</td><td>Flesh And Blood (1)</td><td>philosophical</td></tr>
+	<tr><td>156</td><td>7.10</td><td>Flesh And Blood (2)</td><td>philosophical</td></tr>
+	<tr><td>157</td><td>7.11</td><td>Lineage</td><td>time travel</td></tr>
+	<tr><td>158</td><td>7.12</td><td>Shattered</td><td>relationships, philosophical</td></tr>
+	<tr><td>159</td><td>7.13</td><td>Repentance</td><td>philosophical</td></tr>
+	<tr><td>160</td><td>7.14</td><td>Prophecy</td><td>spiritual</td></tr>
+	<tr><td>161</td><td>7.15</td><td>The Void</td><td>culture-clash, action</td></tr>
+	<tr><td>162</td><td>7.16</td><td>Workforce – Part 1</td><td>mystery</td></tr>
+	<tr><td>163</td><td>7.17</td><td>Workforce – Part 2</td><td>mystery, philosophical</td></tr>
+	<tr><td>164</td><td>7.18</td><td>Human Error</td><td>virtual reality, relationships</td></tr>
+	<tr><td>165</td><td>7.19</td><td>Q2</td><td>crossover, powerful being</td></tr>
+	<tr><td>166</td><td>7.20</td><td>Author, Author</td><td>virtual reality</td></tr>
+	<tr><td>167</td><td>7.21</td><td>Friendship One</td><td>action, intrigue</td></tr>
+	<tr><td>168</td><td>7.22</td><td>Natural Law</td><td>survival</td></tr>
+	<tr><td>169</td><td>7.23</td><td>Homestead</td><td>relationships</td></tr>
+	<tr><td>170</td><td>7.24</td><td>Renaissance Man</td><td>action, intrigue, relationships</td></tr>
+	<tr><td>171</td><td>7.25</td><td>Endgame – Part 1</td><td>time travel</td></tr>
+	<tr><td>172</td><td>7.26</td><td>Endgame – Part 2</td><td>time travel</td></tr>
+	<!-- TABLE_END -->
+	</table>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Star Trek: Voyager - Star Trek Annotated Episodes Guide</title>
+
+	<style type="text/css">
+		body { margin: 10px 50px; font-family: Arial; }
+
+		h1 a { text-decoration: none; color: #069; }
+		h2 { margin-top: 50px; }
+		h3 { margin-bottom: 5px; }
+
+		p { margin-top: 50px; line-height: 3em; }
+
+		p a { display: block; border: 1px solid #fff;  border-radius: 5px; padding: 10px 25px; }
+
+		p a:hover { border: 1px solid #eee; }
+
+		table { border-collapse: collapse; }
+
+		td,th { text-align: left; border: 1px solid #ccc; padding: 5px 8px; }
+		td:first-child { text-align: center; width: 100px; }
+		td:first-child + td { text-align: center;  width: 100px; }
+
+		#tags { line-height: 2.2em; }
+		a.tag {  border: none; border-radius: 5px; background-color: #bbb; padding: 3px 8px; margin: 3px; margin-bottom: 10px; text-decoration: none; color: #fff; white-space: nowrap; }
+		
+		.green { background-color: #38be67 !important; }
+		.mint { background-color: #44af8e !important; }
+		.darkred { background-color: #d9534f !important; }
+		.grey { background-color: #5e5e5e !important; }
+		.yellow { background-color: #d1d100 !important; }
+		.olive { background-color: olive !important; }
+		.purple { background-color: #8e44ad !important; }
+		.pink { background-color: #ff6de4 !important; }
+		.red { background-color: #ff0000 !important; }
+		.blue { background-color: #5e90ff !important; }
+
+		#filters { margin-left: 25px; display: none; }
+		#filters a { margin-left: 15px; width: 18px; height: 18px; }
+	</style>
+
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+	var is_filtered = 0;
+
+	function clear_filters() {
+		$("table tr").show();
+
+		is_filtered = 0;
+		$("#filters > span").empty();
+		$("#filters").hide();
+	}
+
+	$(document).ready(function() {
+		$(".tag").click(function() {
+			event.preventDefault();
+
+			if(is_filtered > 1){
+				clear_filters();
+			}else{
+				var query = $(this).attr('href');
+				console.log(is_filtered, query);
+
+				var $tag_a = $(this).clone();
+
+				var re = new RegExp(query.toLowerCase(), 'g');
+
+				$("table tr").not(':first').each(function() {
+					$this = $(this);
+					var text = $this.find("td:eq(3)").text();
+					if( text.match(re) ){
+					//	console.log( text );
+					}else{
+						$this.fadeOut(1000);
+					}
+				});
+
+				$("#filters > span").prepend($tag_a);
+
+				is_filtered++;
+				$("#filters").show();
+			}
+		});
+	});
+	</script>
+</head>
+<body>
+
+	<h1><a href="index.html">Star Trek Annotated Episodes Guide</a></h1>
+
+	<hr>
+
+	<div id="tags">
+		<h3>Tags:</h3>
+		<a href="Powerful being"	class="tag blue" title="indicates episode where the Voyager faces an enemy with superior powers (e.g., Q, the caretaker)">Powerful being</a>
+		<a href="Action"		class="tag red" title="indicates episode focused more on a conflict or spaceship fight.">Action</a>
+		<a href="Relationships"	class="tag grey" title="indicates episode where the central plot is focused on romantic, family, friendship, or crew relationships.">Relationships</a>
+		<a href="Time travel"	class="tag yellow" title="indicates episode that features time travel or time anomalies as a central element of the plot.">Time travel</a>
+		<a href="Culture-clash"	class="tag olive" title="indicates episode centered around a cultural conflict between the Voyager and another planet, group of aliens, or between members of the crew.">Culture-clash</a>
+		<a href="Philosophical"	class="tag mint" title="indicates episode centered around an ethical or philosophical dilemma that is explored through the plot.">Philosophical</a>
+		<a href="Mystery"		class="tag darkred" title="indicates episode centered around a mysterious event that is figured out throughout the plot.">Mystery</a>
+		<a href="Intrigue"		class="tag purple" title="indicates episode centered around betrayal, deception, or other interpersonal conflicts that involve these elements.">Intrigue</a>
+		<a href="Space anomaly"	class="tag green" title="indicates episode centered around a strange phenomena that complicates the situation for the Voyager (e.g., a space distortion, a wormhole, etc.)">Space anomaly</a>
+		<a href="Psychological"	class="tag darkred" title="indicates episode focused on a crew member's psychological state or alterations of this state (e.g., hallucinations, PTSD, illusions, subconscious projections, etc.)">Psychological</a>
+		<a href="Emotional"		class="tag pink" title="indicates episode focused on the emotional experience of a character that is centered on this emotional experience (e.g., abnormal anger, loss, etc.)">Emotional</a>
+		<a href="Historical figures" class="tag yellow" title="indicates episode that features real or in-universe historical figures">Historical figures</a>
+		<a href="Virtual reality"	class="tag mint" title="indicates an episode centered around the holodeck or another experience that occurs within a virtual simulation or features this element at the center of the plot">Virtual reality</a>
+		<a href="Powers"		class="tag olive" title="indicates an episode centered around the special powers of an character (e.g., psychic abilities)">Powers</a>
+		<a href="Mutation"		class="tag purple" title="indicates an episode centered around an individual being altered or changed (e.g., mutated into another being, cloned, etc.)">Mutation</a>
+		<a href="Horror"		class="tag darkred" title="indicates an episode featuring scary elements ">Horror</a>
+		<a href="Survival"		class="tag blue" title="indicates an episode where characters must survive in a hostile environment (e.g., an alien planet, a prison, etc.)">Survival</a>
+		<a href="Spiritual"		class="tag darkred" title="indicates an episode focused on a character's spiritual journey or faith">Spiritual</a>
+		<a href="Crossover"		class="tag purple" title="indicates an episode that prominently features characters from other Star Trek shows">Crossover</a>
+		<a href="Comedy"		class="tag yellow" title="indicates an episode that features foremost humorous or playful amusing elements">Comedy</a>
+
+		<a href="Social issues"	class="tag blue" title="">Social issues</a><!-- this tag only on orville so far -->
+	</div>
+
+	<h2>Star Trek: Voyager <span id="filters"><span></span><a href="#" onclick="clear_filters();" title="clear"><img alt="clear" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4wcRDQ0TP0mDpgAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAclBMVEW3t7fExMTFxcXGxsbHx8fJycnKysrMzMzQ0NDR0dHT09PU1NTY2NjZ2dna2trd3d3e3t7i4uLj4+Pk5OTm5ubo6Ojp6enr6+vs7Ozt7e3w8PDx8fH09PT19fX29vb39/f5+fn6+vr7+/v9/f3/beT///9XhvbgAAAAAWJLR0QktAb5mQAAAH5JREFUGNN10NkSgjAQRNHQEgEXUFwRAUPq/v8v+qJCYtGPp2apGYOJgjGKYhYo9wyppAscv1U1nKUtPKfGDr9JB3w+UeHpr1DPx58AumDjqgeKgNYOKANqwOPsjEp4HKCZyDrGLGlh/6M7VFI28rIf2kGbSKrgtnx2TP8vfAPXHwvCVBHHRgAAAABJRU5ErkJggg=="></a></span></h2>
+
+	<table id="episodes" cellspacing="0" border="0">
+	<tr>
+		<th>episode no</th>
+		<th>episode</td>
+		<th>title</th>
+		<th>tag(s)</th>
+	</tr>
+	<!-- TABLE_BEGIN -->
+	<tr><td>1</td><td>1.1</td><td>Old Wounds</td><td>relationships, action, emotional</td></tr>
+	<tr><td>2</td><td>1.2</td><td>Command Performance</td><td>mystery, culture-clash, psychological</td></tr>
+	<tr><td>3</td><td>1.3</td><td>About a Girl</td><td>philosophical, relationships</td></tr>
+	<tr><td>4</td><td>1.4</td><td>If the Stars Should Appear</td><td>mystery, culture-clash, time-travel</td></tr>
+	<tr><td>5</td><td>1.5</td><td>Pria</td><td>action, relationships, emotional</td></tr>
+	<tr><td>6</td><td>1.6</td><td>Krill</td><td>action, culture-clash, survival, psychological</td></tr>
+	<tr><td>7</td><td>1.7</td><td>Majority Rule</td><td>culture-clash, philosophical</td></tr>
+	<tr><td>8</td><td>1.8</td><td>Into the Fold</td><td>survival, action</td></tr>
+	<tr><td>9</td><td>1.9</td><td>Cupid’s Dagger</td><td>relationships, comedy</td></tr>
+	<tr><td>10</td><td>1.10</td><td>Firestorm</td><td>mystery, psychological, virtual reality</td></tr>
+	<tr><td>11</td><td>1.11</td><td>New Dimensions</td><td>action, social issues, space anomaly</td></tr>
+	<tr><td>12</td><td>1.12</td><td>Mad Idolatry</td><td>culture-clash, philosophical</td></tr>
+	<tr><td>13</td><td>2.1</td><td>Ja’loja</td><td>relationships, comedy</td></tr>
+	<tr><td>14</td><td>2.2</td><td>Primal Urges</td><td>psychological, relationships, action, social issues</td></tr>
+	<tr><td>15</td><td>2.3</td><td>Home</td><td>relationships, action, emotional</td></tr>
+	<tr><td>16</td><td>2.4</td><td>Nothing Left on Earth Excepting Fishes</td><td>intrigue,relationships, survival</td></tr>
+	<tr><td>17</td><td>2.5</td><td>All the World Is Birthday Cake</td><td>culture-clash, action, social issues</td></tr>
+	<tr><td>18</td><td>2.6</td><td>A Happy Refrain</td><td>relationships, emotional, culture-clash</td></tr>
+	<tr><td>19</td><td>2.7</td><td>Deflectors</td><td>social issues, mystery</td></tr>
+	<tr><td>20</td><td>2.8</td><td>Identity, Part 1</td><td>culture-clash, intrigue</td></tr>
+	<tr><td>21</td><td>2.9</td><td>Identity, Part 2</td><td>action</td></tr>
+	<tr><td>22</td><td>2.10</td><td>Blood of Patriots</td><td>relationships, action, emotional</td></tr>
+	<tr><td>23</td><td>2.11</td><td>Lasting Impressions</td><td>relationships, virtual reality, philosophical</td></tr>
+	<tr><td>24</td><td>2.12</td><td>Sanctuary</td><td>social issues, action, culture clash</td></tr>
+	<tr><td>25</td><td>2.13</td><td>Tomorrow, and Tomorrow, and Tomorrow</td><td>space anomaly, time travel, relationships</td></tr>
+	<tr><td>26</td><td>2.14</td><td>The Road Not Taken</td><td></td></tr>
+	<!-- TABLE_END -->
+	</table>
+</body>
+</html>

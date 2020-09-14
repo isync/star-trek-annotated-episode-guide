@@ -8,6 +8,7 @@ Currently there's
 
 - [Star Trek: Voyager](st-voyager.html) ([preview](https://raw.githack.com/isync/star-trek-annotated-episode-guide/master/st-voyager.html))
 - [Star Trek: The Next Generation](st-the-next-generation.html) ([preview](https://raw.githack.com/isync/star-trek-annotated-episode-guide/master/st-the-next-generation.html))
+- [Star Trek: The Orville](the-orville.html) ([preview](https://raw.githack.com/isync/star-trek-annotated-episode-guide/master/the-orville.html))
 
 The HTML files contain simple JS code which allows you to filter the listings according to tags. Try it!
 
@@ -16,6 +17,10 @@ The HTML is built from source spreadsheet files which are also included in this 
 ## Rationale
 
 Over the years of being an avid Star Trek fan, I found out that I mostly enjoyed episodes which  revolve around or start out from a mystery element. When I decided to watch some selected episodes of the show again, I wanted to start with these - thus I needed to know which epsiodes the mystery ones were... That's why this guide here was compiled.
+
+## The Orville
+
+Yeah, let's call it a Trek show. It's true to the spirit. Period. ...Picard is just such a let down.
 
 ## License
 

@@ -5,7 +5,7 @@ use Path::Tiny;
 use Spreadsheet::XLSX;
 use utf8; 
 
-for my $file ("voyager.xlsx","the-next-generation.xlsx"){
+for my $file ("voyager.xlsx","the-next-generation.xlsx","the-orville.xlsx"){
 	my $excel = Spreadsheet::XLSX->new($file);
 
 	my @lines;

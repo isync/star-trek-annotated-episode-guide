@@ -8,7 +8,7 @@ Currently there's
 
 - [Star Trek: Voyager](st-voyager.html) ([preview](https://raw.githack.com/isync/star-trek-annotated-episode-guide/master/st-voyager.html))
 - [Star Trek: The Next Generation](st-the-next-generation.html) ([preview](https://raw.githack.com/isync/star-trek-annotated-episode-guide/master/st-the-next-generation.html))
-- [Star Trek: The Orville](the-orville.html) ([preview](https://raw.githack.com/isync/star-trek-annotated-episode-guide/master/the-orville.html))
+- [Star Trek: The Orville](st-the-orville.html) ([preview](https://raw.githack.com/isync/star-trek-annotated-episode-guide/master/st-the-orville.html))
 
 The HTML files contain simple JS code which allows you to filter the listings according to tags. Try it!
 
